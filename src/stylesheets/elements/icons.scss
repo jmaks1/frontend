@@ -1,0 +1,86 @@
+/*
+* Icons
+*/
+
+.icon {
+  font-size: $baseFontSize;
+  &.icon-gj { @include spriteSvg(logo); }
+  &.icon-gj-white { @include spriteSvg(gj); }
+  &.icon-vk { @include spriteSvg(vk_ico); }
+  &.icon-ok { @include spriteSvg(ok_ico); }
+  &.icon-you { @include spriteSvg(you_ico); }
+  &.icon-f { @include spriteSvg(f_ico); }
+  &.icon-insta { @include spriteSvg(insta_ico); }
+  &.icon-vk { @include spriteSvg(vk_ico); }
+  &.icon-graph-1,
+  &.icon-graph-2,
+  &.icon-graph-3 {
+    font-size: 6px;
+    @include spriteSvg(seo_info);
+  }
+  &.icon-graph-1 { @include rotate(-125deg); }
+  &.icon-graph-2 { }
+  &.icon-graph-3 { @include rotate(125deg); }
+
+  &.icon-points {
+    $time: 0.3s;
+    $size: 4px;
+    display: inline-block;
+    .elem-1,
+    .elem-2,
+    .elem-3 {
+      letter-spacing: 5px;
+      display: inline-block;
+      height: $size;
+      width: $size;
+      margin-bottom: $size / 2;
+      background-color: color(red);
+      border-radius: 50%;
+      @include transition(opacity $time ease);
+    }
+    .elem-1 { @include opacity(0.77); }
+    .elem-2 { @include opacity(0.55); }
+    .elem-3 { @include opacity(0.33); }
+    &:hover,
+    &.active {
+      .elem-1 { @include opacity(1); }
+      .elem-2 { @include opacity(1); }
+      .elem-3 { @include opacity(1); }
+    }
+  }
+
+  &.icon-bars {
+    $size: 20px;
+    width: $size;
+    height: $size / 10 * 3 + $size / 10 * 1.5 * 2;
+    display: inline-block;
+    position: relative;
+    .elem-1,
+    .elem-2,
+    .elem-3 {
+      display: block;
+      height: $size / 10;
+      width: $size;
+      margin-bottom: $size / 10 * 1.5;
+      background-color: color(white);
+    }
+    .elem-1 { @include transition(transform  0.5s ease); }
+    .elem-2 { @include transition(opacity 0.5s ease); }
+    .elem-3 { @include transition(transform  0.5s ease); margin-bottom: 0; }
+    &.active {
+      .elem-1,
+      .elem-2,
+      .elem-3 {
+        @include center;
+      }
+      .elem-1 { @include rotate(45deg); }
+      .elem-2 { @include opacity(0); }
+      .elem-3 { @include rotate(-45deg); }
+    }
+  }
+}
+
+/*
+* include awesome-fonts
+*/
+@import "../../../bower_components/font-awesome/scss/font-awesome";

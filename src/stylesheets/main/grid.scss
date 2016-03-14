@@ -1,0 +1,22 @@
+// Grid system
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_grid";
+// Utility classes
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+.vs-xs,
+.vs-sm,
+.vs-md,
+.vs-lg,
+.vs-xl { display: none !important; }
+.vs-xs { @media #{$xs-only} { display: block !important; } }
+.vs-sm { @media #{$sm-only} { display: block !important; } }
+.vs-md { @media #{$md-only} { display: block !important; } }
+.vs-lg { @media #{$lg-only} { display: block !important; } }
+.vs-xl { @media #{$xl-up} { display: block !important; } }
+
+.clear-padding-xs { @media #{$xs-only} { padding: 0 !important; } }
+.clear-padding-sm { @media #{$sm-only} { padding: 0 !important; } }
+.clear-padding-md { @media #{$md-only} { padding: 0 !important; } }
+.clear-padding-lg { @media #{$lg-only} { padding: 0 !important; } }
+.clear-padding-xl { @media #{$xl-up} { padding: 0 !important; } }

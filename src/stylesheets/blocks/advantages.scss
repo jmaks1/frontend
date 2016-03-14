@@ -1,0 +1,36 @@
+.advantages {
+  border-top: 1px solid color(red);
+  margin: 20px 0 30px;
+  font-size: 11px;
+  color: color(grayLight);
+  & > .row {
+    margin: 0;
+  }
+  .icon {
+    margin: 30px 0 20px;
+    @include center-block;
+  }
+  h2 {
+    margin: 0 0 20px;
+    font-size: 13px;
+    color: color(grayDark);
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  a {
+    color: color(red);
+  }
+
+  &.advantages_inside {
+    padding: 20px 20px 0px 20px;
+    margin: 30px 0 0px;
+  }
+
+  @include breakpoint(md) {
+    & > .row {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+}

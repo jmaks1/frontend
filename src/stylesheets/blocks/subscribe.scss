@@ -1,0 +1,31 @@
+/*
+* Subscribe block
+*/
+
+.gj-subscribe {
+    text-align: center;
+    .gj-subscribe__email {
+        border: 0;
+        margin-top: -5px;
+        border-bottom: 1px solid color(grayLight);
+        box-shadow: none;
+        @include transition(border-color, 0.3s, ease);
+        &:focus {
+            border-bottom: 1px solid color(gray);
+            box-shadow: none;
+        }
+    }
+
+    .gj-subscribe__btn {
+        width: 15px;
+        padding: 0;
+    }
+
+    .form-group {
+        &.has-error {
+            .gj-subscribe__email {
+                border-bottom: 1px solid color(red);
+            }
+        }
+    }
+}

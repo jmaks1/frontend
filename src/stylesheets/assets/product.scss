@@ -1,0 +1,208 @@
+/*
+* Product SASS file
+*/
+
+.product {
+  margin: 20px 0;
+  .product__price {
+    @include text-overflow;
+    .price {
+      line-height: 20px;
+      margin-bottom: 5px;
+      font-size:28px;
+      font-weight: 700;
+      color: color(gray);
+      &.md-price { color: color(red); }
+      &.reg-price {
+        color: color(grayLight);
+        text-decoration: line-through;
+      }
+      .gj { font-size: 20px; }
+    }
+  }
+  .product__style {
+    font-size: 10px;
+    text-transform: uppercase;
+    line-height: 15px;
+    color: color(snowDark);
+    @include text-overflow;
+  }
+  .product__gallery {
+    height: 765px;
+    .product__gallery__dots {
+      height: 100%;
+      float: left;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-right: 5px;
+      padding-right: 15px;
+      min-width: 125px;
+      .dots-container {
+        display: table;
+        height: 100%;
+        .dots-set {
+          display: none;
+          vertical-align: middle;
+          .dots-item {
+            display: block;
+            margin: 20px 0;
+            @include opacity(0.44);
+            img {
+              width: 110px;
+            }
+            &.active {
+              @include opacity(1);
+            }
+          }
+
+          &.active {
+            display: table-cell;
+          }
+        }
+      }
+    }
+    .product__gallery__image {
+      overflow: hidden;
+      height: 100%;
+      position: relative;
+      background-color: color(snow);
+      & > img {
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+      }
+
+      .image {
+        display: block;
+        height: 100%;
+        width: 100%;
+        @include background-type();
+      }
+
+      &:before {
+        $size: 100px;
+        font-size: $size;
+        height: $size;
+        width: $size;
+        color: color(grayLight);
+        @include center;
+        content: "\EA04";
+        display: inline-block;
+        font-family: "GloriaJeans";
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+  }
+  .product__description {
+    .product__description__prop {
+      margin: 40px 0;
+      h2 {
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+      p {
+        font-size: 11px;
+      }
+      .link-right {
+        white-space: nowrap;
+        color: color(black);
+        font-size: 12px;
+        text-transform: uppercase;
+        @include opacity(0.44);
+        &:hover,
+        &:active,
+        &:focus {
+          @include opacity(1);
+          text-decoration: none;
+        }
+      }
+
+      .gj-colors {
+        .gj-colors__wrap {
+
+        }
+      }
+      .gj-social {
+        .gj-social__buttons {
+          a {
+            margin: 0 18px 0 0;
+          }
+        }
+      }
+    }
+  }
+  @media #{$xl-up} {
+    .product__gallery {
+      .product__gallery__dots {
+        margin-left: 160px;
+      }
+    }
+  }
+  @media #{$xs-only} {
+    .product__gallery {
+      height: auto;
+      padding-bottom: 130px;
+      .product__gallery__dots {
+        height: 130px;
+        position: absolute;
+        bottom: 0;
+        overflow-y: hidden;
+        overflow-x: auto;
+        right: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        .dots-container {
+          white-space: nowrap;
+          .dots-set {
+            padding-bottom: 10px;
+            .dots-item {
+              margin: 10px 10px 0 0;
+              display: inline-block;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  @media #{$md-down} {
+    margin-top: 60px;
+    .product__description {
+      .product__description__prop {
+        margin: 30px 0;
+        .gj-colors {
+          .gj-colors__wrap {
+            margin: 0 9px;
+          }
+        }
+        .gj-social {
+          h2 {
+            font-size: 10px;
+          }
+          .gj-social__buttons {
+            a {
+              margin: 0 9px;
+            }
+          }
+        }
+        &.mobile {
+          margin: 20px 0;
+          text-align: center;
+        }
+      }
+    }
+
+    .product__share {
+      .product__share__btn {
+        a {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}

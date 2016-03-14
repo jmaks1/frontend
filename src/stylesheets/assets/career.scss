@@ -1,0 +1,67 @@
+.vacancy {
+  h2 {
+    margin: 20px 0;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  .vacancy__list {
+    margin: 20px 0;
+    text-align: center;
+    .btn {
+      margin: 5px 0;
+      width: 100%;
+    }
+  }
+
+  .vacancy__item {
+    .vacancy__item__city {
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: color(red);
+      }
+    }
+    .vacancy__item__count {
+      background-color: color(red);
+    }
+    .vacancy__item__detail {
+      display: none;
+      padding: 10px 0;
+      .row {
+        padding: 10px 0;
+        & > div {
+          margin-bottom: 5px;
+        }
+
+      }
+
+      .vacancy__item__external {
+        font-size: 14px;
+        .fa {
+          font-size: 9px;
+          right: -3px;
+          position: relative;
+          color: color(blue);
+        }
+      }
+      .vacancy__item__company {
+        display: inline-block;
+        width: 70px;
+        text-align: center;
+        margin: 0 10px 0 0;
+        img {
+          height: 30px;
+          margin-bottom: -10px;
+        }
+      }
+
+      @media #{$sm-down} {
+        .text-right {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+

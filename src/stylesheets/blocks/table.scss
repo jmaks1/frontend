@@ -1,0 +1,10 @@
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+
+.table-middle {
+  display: table;
+  width: 100%;
+  .table-middle__cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

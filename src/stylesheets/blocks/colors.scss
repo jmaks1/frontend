@@ -1,0 +1,54 @@
+/*
+* Gj-colors styles
+*/
+
+.gj-colors {
+  position: relative;
+  vertical-align: bottom;
+  overflow: visible;
+  font-size: 0;
+  .gj-colors__item {
+    display: inline-block;
+    margin-right: 18px;
+    $color: 20px;
+    $colorActive: 30px;
+    .color {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      width: $colorActive;
+      height: $colorActive;
+      .color__inside,
+      .color__outside {
+        border-radius: 50%;
+        @include transition(all, 0.3s, ease-in-out);
+        @include center;
+        @include background-type;
+      }
+      .color__inside {
+        width: ($color / 2);
+        height: ($color / 2);
+      }
+      .color__outside {
+        width: $color;
+        height: $color;
+        box-shadow: 0 0 1px rgba(0,0,0,0.44);
+      }
+    }
+    &.active {
+      .color {
+        .color__inside {
+          width: ($colorActive / 2) - 1;
+          height: ($colorActive / 2) - 1;
+        }
+        .color__outside {
+          width: $colorActive;
+          height: $colorActive;
+        }
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+/*
+* Colors
+*/
+
+.color-black {
+  color: color(black) !important;
+  &:hover,
+  &:focus {
+    color: color(black) !important;
+  }
+}
+
+.color-white {
+  color: color(white) !important;
+  &:hover,
+  &:focus {
+    color: color(white) !important;
+  }
+}
+
+.color-brown {
+  color: color(brown) !important;
+  &:hover,
+  &:focus {
+    color: color(brown) !important;
+  }
+}
+
+.color-vinous {
+  color: color(vinous);
+  opacity: .8;
+  &:hover,
+  &:focus {
+    color: color(vinous);
+    opacity: .9;
+  }
+}

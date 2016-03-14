@@ -1,0 +1,74 @@
+.promo-container {
+  @media #{$lg-down} {
+    & > .row {
+      margin: 0;
+    }
+  }
+}
+
+.promo-block {
+  .promo-cart {
+    padding: 20px 10px 0;
+    @include clearfix;
+    img { max-width: 100%; }
+    .image {
+      display: block;
+      width:100%;
+      @include background-type();
+      @media #{$xs-up} { height: height(imagePromoXs); }
+      @media #{$sm-up} { height: height(imagePromoSm); }
+      @media #{$md-up} { height: height(imagePromoMd); }
+      @media #{$lg-up} { height: height(imagePromoLg); }
+      @media #{$xl-up} { height: height(imagePromoXl); }
+      &.small {
+        @media #{$xs-up} { height: height(imagePromoSmallXs); }
+        @media #{$sm-up} { height: height(imagePromoSmallSm); }
+        @media #{$md-up} { height: height(imagePromoSmallMd); }
+        @media #{$lg-up} { height: height(imagePromoSmallLg); }
+        @media #{$xl-up} { height: height(imagePromoSmallXl); }
+      }
+    }
+    a {
+      font-size: 11px;
+      text-transform: uppercase;
+      @media #{$md-down} { font-size: 8px; }
+      @media #{$lg-down} { font-size: 9px; }
+    }
+    .absolute {
+      position: absolute;
+      left: 15px;
+      top: 15px + 10;
+      right: 15px + 10;
+      bottom: 15px;
+      &.pos-left { right:auto; }
+      &.pos-right { left: auto; }
+      &.pos-top { bottom:auto; }
+      &.pos-bottom { top: auto; }
+      &.pos-center { margin: auto; }
+      &.icon-instagram-big { color: rgba( color(white), 0.5); }
+
+      @media #{$xl-up} {
+        left: 20px + 10;
+        top: 20px + 20;
+        right: 20px + 10;
+        bottom: 20px;
+      }
+    }
+
+    @media #{$lg-down} {
+      padding: 10px 10px 0 0;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    @media #{$sm-down} {
+      padding: 10px 5px 0 0;
+      &:last-child {
+        padding: 10px 0 0 5px;
+        .absolute {
+          right: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+/*
+* Header
+*/
+
+.header {
+  font-size: 10px;
+  width: auto;
+  z-index: z(aboveSlider);
+  position: relative;
+  .search {
+    #search-field {
+      border-bottom: 1px solid #ccc;
+      background-color: #fff;
+      float: left;
+      height: 20px;
+      width: 190px;
+    }
+
+    #search-button {
+      display: inline-block;
+      padding: 0 3px;
+      line-height: 20px;
+      border: 0;
+      cursor: pointer;
+      @include transition(background 0.5s ease);
+      &:hover {
+        color: color(white);
+        background-color: color(gray);
+      }
+      &:active {
+        color: color(grayDark);
+        background-color: color(white);
+      }
+    }
+  }
+  .logo {
+    display: block;
+    white-space: nowrap;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: z(aboveSlider);
+    .icon-gj {
+      font-size: $baseFontSize / 2;
+      position: relative;
+      background-color: color(pink);
+    }
+    .gj-gloria_jeans {
+      display: none;
+      font-size: 80px;
+      color: #fff;
+      @include center;
+    }
+    &.animate {
+      $aTime1: 2s;
+      $aTime2: 3.5s;
+      .icon-gj {
+        -webkit-animation: logo $aTime2 ease-out;
+        animation: logo $aTime2 ease-out;
+      }
+      .gj-gloria_jeans {
+        display: block;
+        -webkit-animation: logo-name $aTime1 ease-in;
+        animation: logo-name $aTime1 ease-in;
+      }
+    }
+
+    @include breakpoint(md) {
+      float: none;
+      position: static;
+      .icon-gj {
+        font-size: $baseFontSize;
+      }
+    }
+  }
+
+  .header-panel {
+    position: fixed;
+    right: 60px;
+    top: 0;
+    z-index: z(default);
+    display: none;
+    &.active {
+      display: block;
+      -webkit-animation: dropDown-opacity 0.5s ease-out;
+      animation: dropDown-opacity 0.5s ease-out;
+    }
+  }
+
+  #geo {
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 18px;
+    cursor: pointer;
+    position: relative;
+  }
+  .language {
+    margin-top: 18px;
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  .discount {
+    margin-top: 10px;
+    a {
+      text-decoration: none;
+      color: color(red);
+      display: inline-block;
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.gj-geo {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 18px;
+  position: relative;
+  a {
+    cursor: pointer;
+  }
+  .gj-geo__modal {
+    $width: 350px;
+    position: absolute;
+    text-align: left;
+    width: $width;
+    margin-top: 10px;
+    margin-left: -($width / 2);
+    left: 50%;
+    padding: 24px;
+    top: 100%;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+    z-index: z(aboveHeader);
+    background-color: color(white);
+    border-top: 1px solid color(snow);
+    cursor: default;
+    .gj-geo__close {
+      margin-top: -2px;
+      -webkit-appearance: none;
+      float: right;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+      color: color(black);
+      text-shadow: 0 1px 0 color(white);
+      font-family: Arial, Helvetica, sans-serif;
+      @include opacity(.2);
+      &:hover,
+      &:focus,
+      &:active {
+        color: color(red);
+        text-decoration: none;
+        @include opacity(.8);
+      }
+    }
+    .gj-geo__title {
+      font-size: 16px;
+      span {
+        font-family: Arial, Helvetica, sans-serif;
+        //font-family: Verdana, Geneva, sans-serif;
+      }
+    }
+    .gj-geo__control {
+      .btn {
+        margin: 5px 5px 5px 0;
+      }
+    }
+    .gj-geo__desc {
+
+    }
+
+    &:after,
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    &:after {
+      border-color: rgba(color(white), 0);
+      border-bottom-color: color(white);
+      border-width: 10px;
+      margin-left: -10px;
+    }
+    &:before {
+      border-color: rgba(color(snow), 0);
+      border-bottom-color: color(snow);
+      border-width: 11px;
+      margin-left: -11px;
+    }
+
+    @media #{$md-down} {
+      $width: 270px;
+      width: $width;
+      margin-left: -($width / 2);
+      padding: 15px;
+    }
+  }
+}
+
+/**
+fullTime: 3.5s;
+duration:  2.45s;  //70%
+animation: 1.05s;  //30%
+**/
+@-webkit-keyframes logo {
+  0% {
+    left: -195px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  70% {
+    left: -195px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  80% {
+    left: 0;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  100% {
+    left: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes logo {
+  0% {
+    left: -195px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  70% {
+    left: -195px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  80% {
+    left: 0;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
+  }
+  100% {
+    left: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/**
+fullTime:2s;
+duration:  1.5s; //75%
+animation: 0.5s; //25%
+**/
+@-webkit-keyframes logo-name {
+  0% {
+    text-shadow: 0 5px 7px rgba(0, 0, 0, 0.33);
+    @include opacity(1);
+  }
+  75% {
+    text-shadow: 0 5px 7px rgba(0, 0, 0, 0.33);
+  }
+  99% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.33);
+    @include opacity(1);
+  }
+  100% {
+    @include opacity(0);
+  }
+}
+
+@keyframes logo-name {
+  0% {
+    text-shadow: 0 5px 7px rgba(0, 0, 0, 0.33);
+    @include opacity(1);
+  }
+  75% {
+    text-shadow: 0 5px 7px rgba(0, 0, 0, 0.33);
+  }
+  99% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.33);
+    @include opacity(1);
+  }
+  100% {
+    @include opacity(0);
+  }
+}

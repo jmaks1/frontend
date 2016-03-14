@@ -1,0 +1,96 @@
+// include owl carousel
+@import "../../../bower_components/owl.carousel/src/scss/owl.carousel";
+@import "../../../bower_components/owl.carousel/src/scss/owl.animate";
+@import "../../../bower_components/owl.carousel/src/scss/owl.autoheight";
+@import "../../../bower_components/owl.carousel/src/scss/owl.lazyload";
+@import "../../../bower_components/owl.carousel/src/scss/owl.video";
+
+#slider {
+  background-color: lighten(color(grayLight), 15%);
+  z-index: z(default);
+  position: relative;
+  @media #{$xs-up} {
+    //min-height: height(sliderXs);
+  }
+  @media #{$sm-up} {
+    //min-height: height(sliderSm);
+  }
+  @media #{$md-up} { min-height: height(sliderMd); }
+  @media #{$lg-up} { min-height: height(sliderLg); }
+  @media #{$xl-up} { min-height: height(sliderXl); }
+}
+
+.owl-carousel {
+  .owl-stage-outer {
+    .owl-item {
+      .item-video,
+      .item {
+        .image {
+          display: block;
+          width: 100%;
+          height: 100%;
+          @include background-type();
+        }
+        img {
+          width: 100%;
+        }
+
+        @media #{$xs-up} {
+          .loader { height: height(sliderXs) * 0.6; }
+        }
+        @media #{$sm-up} {
+          .loader { height: height(sliderSm) * 0.6; }
+        }
+        @media #{$md-up} {
+          height: height(sliderMd);
+          .loader { height: height(sliderMd); }
+        }
+        @media #{$lg-up} {
+          height: height(sliderLg);
+          .loader { height: height(sliderLg); }
+        }
+        @media #{$xl-up} {
+          height: height(sliderXl);
+          .loader { height: height(sliderXl); }
+        }
+      }
+
+      .item-video {
+        .owl-video-play-icon {
+          top:0;
+          right:0;
+          bottom:0;
+          left:0;
+          margin:0;
+          height: auto;
+          width: auto;
+          background: none;
+        }
+      }
+    }
+  }
+  .owl-nav {
+    display: none;
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+      top:0;
+      bottom:0;
+      background-color: lighten(color(grayLight), 15%);
+      width: 60px;
+      font-size: 50px;
+      span {
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        text-align: center;
+        color: color(white);
+        @include center;
+      }
+      &:hover { background-color: lighten(color(grayLight), 7%); }
+    }
+    .owl-prev { right: 100%; }
+    .owl-next { left: 100%; }
+    @include breakpoint(md) { display: block; }
+  }
+}

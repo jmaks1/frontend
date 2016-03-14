@@ -1,0 +1,25 @@
+/*
+* Basic SASS file
+*/
+
+// include core files
+@import "core/index";
+@import "main/index";
+@import "elements/index";
+
+// include assets
+@import "assets/header";
+@import "assets/footer";
+
+// include blocks
+@import "blocks/menu";
+@import "blocks/moveTop";
+@import "blocks/social";
+@import "blocks/modal";
+@import "blocks/subscribe";
+// jGrowl
+@import "blocks/messages";
+@import "blocks/alert";
+
+
+

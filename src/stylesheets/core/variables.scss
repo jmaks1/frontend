@@ -1,0 +1,99 @@
+$fonts: (
+    openSans: ('Open Sans', sans-serif),
+    verdana: (Verdana, Geneva, sans-serif),
+    centuryGothic: ('CenturyGothic', sans-serif),
+);
+
+$colors: (
+    black: #000000,
+    red: #ff5555,
+    pink: #F15758,
+    vinous: #ae1013,
+    egg: #00cccc,
+    blue: #337AB7,
+    brown: #775d06,
+    grayDark: #292929,
+    gray: #666666,
+    grayLight: #a4a4a4,
+    snowDark: #dedede,
+    snow: #e8e8e8,
+    white: #ffffff
+);
+
+$z-layers: (
+    bottomless-pit: -9999,
+    default: 1,
+    aboveSlider: 120,
+    aboveHeader: 140,
+);
+
+$height: (
+    menu: 400px,
+    btn: 30px,
+    btnLg: 40px,
+    btnBrown: 50px,
+    sliderXs: 200px,
+    sliderSm: 320px,
+    sliderMd: 410px,
+    sliderLg: 450px,
+    sliderXl: 640px,
+    imageItemXs: 470px,
+    imageItemSm: 390px,
+    imageItemMd: 340px,
+    imageItemLg: 300px,
+    imageItemXl: 400px,
+    imagePromoXs: 280px,
+    imagePromoSm: 410px,
+    imagePromoMd: 425px,
+    imagePromoLg: 465px,
+    imagePromoXl: 640px,
+    imagePromoSmallXs: 170px,
+    imagePromoSmallSm: 240px,
+    imagePromoSmallMd: 240px,
+    imagePromoSmallLg: 270px,
+    imagePromoSmallXl: 360px,
+);
+
+$width: (
+    container: 1280px,
+    footerIndent: 7.8%,
+);
+
+// ie class
+$ieSprite: '.ie8' !default;
+$spriteSvg: map-get($icons, sprite) !default;
+
+$baseFontSize: 12px !default;
+$baseLineHeight: 20px !default;
+
+/*
+* breakpoints
+*/
+$xs-range: (0px, 479px);
+$sm-range: (480px, 767px);
+$md-range: (768px, 959px);
+$lg-range: (960px, 1279px);
+$xl-range: (1280px, 1439px);
+$screen: "only screen";
+
+/*
+* include bootstrap variables
+*/
+$font-size-h1: 24px;
+$font-size-h2: 20px;
+$font-size-h3: 18px;
+$grid-gutter-width: 20px;
+$border-radius-large: 0px;
+$border-radius-base: 0px;
+$input-height-base: 30px;
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 960px;
+$screen-lg: 1280px;
+
+$container-tablet: $screen-sm - 40;
+$container-desktop: $screen-md - 40;
+$container-large-desktop: $screen-lg - 20;
+
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";

@@ -1,0 +1,142 @@
+/*
+* Heart logo
+*/
+
+.gj_heart {
+  $size: 100px;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: $size;
+  height: $size / 1.15;
+  margin: 10px auto -17px;
+
+  .gj_heart__elem {
+    position: absolute;
+    z-index: 2;
+    background-color: color(pink);
+    -webkit-animation: beat 0.7s ease 0s infinite normal;
+    -moz-animation: beat 0.7s ease 0s infinite normal;
+    animation: beat 0.7s ease 0s infinite normal;
+    &.center {
+      background-color: color(pink);
+    }
+    &.top {
+      z-index: 3;
+    }
+
+    &.gradient {
+      @include gradient-directional(color(pink), color(red) - #111, -90deg);
+      &.center {
+        @include gradient-directional(color(red) - #111, color(red) - #111,-45deg);
+      }
+    }
+  }
+
+  .side {
+    right: $size / 10;
+    width: $size / 2;
+    height: $size / 2;
+    border-radius: $size / 2;
+  }
+  .center {
+    width: $size / 2;
+    height: $size / 2;
+    bottom: $size / 6;
+    left: $size / 4;
+    font-size: 0;
+    text-indent: -9999px;
+  }
+  .left {
+    left: $size / 20;
+  }
+  .right {
+    right: $size / 20;
+  }
+  .icon-gj-white {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 15px;
+    margin: auto;
+    font-size: 2.5px;
+    -webkit-animation: beatLogo 0.7s ease 0s infinite normal;
+    -moz-animation: beatLogo 0.7s ease 0s infinite normal;
+    animation: beatLogo 0.7s ease 0s infinite normal;
+  }
+}
+$beatFrom: 1;
+$beatTo: 1.1;
+@-webkit-keyframes beat {
+  0% {
+    -webkit-transform: scale($beatFrom) rotate(225deg);
+  }
+  50% {
+    -webkit-transform: scale($beatTo) rotate(225deg);
+  }
+  100% {
+    -webkit-transform: scale($beatFrom) rotate(225deg);
+  }
+}
+
+@-moz-keyframes beat {
+  0% {
+    -moz-transform: scale($beatFrom) rotate(225deg);
+  }
+  50% {
+    -moz-transform: scale($beatTo) rotate(225deg);
+  }
+  100% {
+    -moz-transform: scale($beatFrom) rotate(225deg);
+  }
+}
+
+@keyframes beat {
+  0% {
+    transform: scale($beatFrom) rotate(225deg);
+  }
+  50% {
+    transform: scale($beatTo) rotate(225deg);
+  }
+  100% {
+    transform: scale($beatFrom) rotate(225deg);
+  }
+}
+
+@-webkit-keyframes beatLogo {
+  0% {
+    -webkit-transform: scale($beatFrom);
+  }
+  50% {
+    -webkit-transform: scale($beatTo);
+  }
+  100% {
+    -webkit-transform: scale($beatFrom);
+  }
+}
+
+@-moz-keyframes beatLogo {
+  0% {
+    -moz-transform: scale($beatFrom);
+  }
+  50% {
+    -moz-transform: scale($beatTo);
+  }
+  100% {
+    -moz-transform: scale($beatFrom);
+  }
+}
+
+@keyframes beatLogo {
+  0% {
+    transform: scale($beatFrom);
+  }
+  50% {
+    transform: scale($beatTo);
+  }
+  100% {
+    transform: scale($beatFrom);
+  }
+}
