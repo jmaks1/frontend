@@ -2,8 +2,8 @@
  * Init Menu
  */
 
-require('perfect-scrollbar/jquery');
-//import 'perfect-scrollbar/jquery';
+//require('perfect-scrollbar/jquery');
+import 'perfect-scrollbar/jquery';
 
 module.exports = {
     init: function() {

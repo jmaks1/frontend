@@ -44,6 +44,11 @@
             "watch": "sprite-png/*.*",
             "template": "src/sprite-png.template",
             "core": "src/stylesheets/core/"
+        },
+        "fonts": {
+            "src": "fonts/**/*.*",
+            "dist": "fonts",
+            "watch": "fonts/**/*.*"
         }
     }
 }

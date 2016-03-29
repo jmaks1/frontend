@@ -5,10 +5,10 @@
 
 var gulp = require('gulp');
 var gutil = require("gulp-util");
-var gulpSequence = require('gulp-sequence'); // Множественный запуск задач
-var requireDir = require('require-dir'); // Автоматическое подключение файлов
+var gulpSequence = require('gulp-sequence'); // Multiple startup tasks
+var requireDir = require('require-dir'); // Automatic connection files
 
-// Переменная для создания сборок
+// Variable to create builds
 var runTimestamp = Math.round(Date.now() / 1000);
 // Require all tasks in gulp/tasks
 var task = requireDir('./gulp/tasks', { recurse: true });
@@ -19,7 +19,7 @@ task.spritePng();
 task.spriteSvg();
 task.icons();
 task.stylesheets();
-//task.watch();
+task.watch();
 
 // init all production tasks
 task.javascripts(runTimestamp);
@@ -34,8 +34,8 @@ gulp.task('development', function (cb) {
         'spritePng',
         'spriteSvg',
         'icons',
-        'stylesheets'
-        //'watch'
+        'stylesheets',
+        'watch'
     )(cb);
 });
 

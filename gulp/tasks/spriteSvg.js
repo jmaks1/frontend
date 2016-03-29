@@ -10,15 +10,12 @@ var taskName = path.basename(__filename, '.js');
 
 var config = require('../config');
 var plumber = require('gulp-plumber');
-var svgmin = require('gulp-svgmin'); // Оптимизируем наш svg
-var svgSprite = require('gulp-svg-sprite'); // Создаем спрайт из svg
+var svgmin = require('gulp-svgmin');
+var svgSprite = require('gulp-svg-sprite');
 
 module.exports = function(runTimestamp) {
-    // if get runTimestamp set mode production
-    taskName += (runTimestamp) ? ':production': '';
-
-    gulp.task(taskName, function () {
-        return gulp.src(taskUrl('spriteSvg', 'src'))
+    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
+        return gulp.src(taskUrl(taskName, 'src'))
             .pipe(plumber())
             .pipe(svgmin())
             .pipe(svgSprite({
@@ -31,12 +28,12 @@ module.exports = function(runTimestamp) {
                     "css": {
                         "dest": config.root.baseDir,
                         "layout": "diagonal",
-                        "sprite": taskUrl('spriteSvg', 'dist', runTimestamp) + "/sprite-svg.svg",
+                        "sprite": taskUrl(taskName, 'dist', runTimestamp) + "/sprite-svg.svg",
                         "bust": false,
                         "render": {
                             "scss": {
-                                "dest": taskUrl('spriteSvg', 'core') + '/sprite-svg.scss',
-                                "template": taskUrl('spriteSvg', 'template')
+                                "dest": taskUrl(taskName, 'core') + '/sprite-svg.scss',
+                                "template": taskUrl(taskName, 'template')
                             }
                         }
                     }

@@ -14,23 +14,17 @@ var webpackConfig = require("../../webpack.config");
 var gutil = require("gulp-util");
 
 module.exports = function(runTimestamp) {
-    // if get runTimestamp set mode production
-    taskName += (runTimestamp) ? ':production': '';
-
-    gulp.task(taskName, function (callback) {
+    gulp.task(taskName + ((runTimestamp)?':production':''), function (callback) {
         var myConfig = [];
         // update basic webpack config
         for (var i = 0; i < webpackConfig.length; i++) {
-            // set entry points and base dir [context]
+            // set entry points
             myConfig[i] = Object.create(webpackConfig[i]);
-            //myConfig[i].context = taskUrl('javascripts', 'src');
-            myConfig[i].entry = config.tasks.javascripts.entries;
-
-            //console.log(taskUrl('javascripts', 'src'));
+            myConfig[i].entry = config.tasks[taskName].entries;
 
             if (runTimestamp) {
-                myConfig[i].output.path = taskUrl('javascripts', 'dist', runTimestamp);
-                myConfig[i].output.publicPath = config.tasks.javascripts.publicPath + 'build_' + runTimestamp + '/javascripts/';
+                myConfig[i].output.path = taskUrl(taskName, 'dist', runTimestamp);
+                myConfig[i].output.publicPath = config.tasks[taskName].publicPath + 'build_' + runTimestamp + '/javascripts/';
                 myConfig[i].plugins = myConfig[i].plugins.concat(
                     new webpack.DefinePlugin({
                         "process.env": {
@@ -49,8 +43,8 @@ module.exports = function(runTimestamp) {
                     })
                 );
             } else {
-                myConfig[i].output.path = taskUrl('javascripts', 'dist');
-                myConfig[i].output.publicPath = '\\' + taskUrl('javascripts', 'dist') + '\\';
+                myConfig[i].output.path = taskUrl(taskName, 'dist');
+                myConfig[i].output.publicPath = '\\' + taskUrl(taskName, 'dist') + '\\';
                 myConfig[i].devtool = "source-map";
             }
         }

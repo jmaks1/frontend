@@ -9,8 +9,6 @@ var languages = {
     "ru": require("./src/messages/lang.ru.json")
 };
 
-//console.log(path.join(__dirname, 'src/javascripts'));
-
 module.exports = Object.keys(languages).map(function (language) {
     return {
         name: language,
@@ -51,20 +49,20 @@ module.exports = Object.keys(languages).map(function (language) {
             moduleTemplates: ['*-loader', '*'],
             extensions: ['', '.js']
         },
-        /*module: {
+        module: {
             loaders: [
                 {
                     test: /\.js$/,
                     include: [
-                        path.resolve(__dirname, "src/javascropts"),
+                        path.resolve(__dirname, "src/javascripts"),
                     ],
-                    exclude: /node_modules/,
+                    exclude: /(node_modules|bower_components)/,
                     loader: 'babel-loader',
                     query: {
                         presets: ['es2015']
                     }
                 }
             ]
-        }*/
+        }
     }
 });

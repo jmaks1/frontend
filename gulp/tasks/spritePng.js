@@ -8,28 +8,25 @@ var path = require('path');
 var taskUrl = require('../lib/createUrl');
 var taskName = path.basename(__filename, '.js');
 
-var spritesmith = require('gulp.spritesmith'); // Создание png спрайтов
+var spritesmith = require('gulp.spritesmith');
 
 module.exports = function(runTimestamp) {
-    // if get runTimestamp set mode production
-    taskName += (runTimestamp) ? ':production': '';
-
-    gulp.task(taskName, function () {
+    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
         var spriteData =
-            gulp.src(taskUrl('spritePng', 'src'))
+            gulp.src(taskUrl(taskName, 'src'))
                 .pipe(spritesmith({
                     imgName: 'sprite.png',
                     cssName: 'sprite.scss',
                     cssFormat: 'scss',
                     algorithm: 'binary-tree',
                     padding: 5,
-                    cssTemplate: taskUrl('spritePng', 'template'),
+                    cssTemplate: taskUrl(taskName, 'template'),
                     cssVarMap: function (sprite) {
                         sprite.name = 's-' + sprite.name
                     }
                 }));
 
-        spriteData.css.pipe(gulp.dest(taskUrl('spritePng', 'core')));
-        spriteData.img.pipe(gulp.dest(taskUrl('spritePng', 'dist', runTimestamp)));
+        spriteData.css.pipe(gulp.dest(taskUrl(taskName, 'core')));
+        spriteData.img.pipe(gulp.dest(taskUrl(taskName, 'dist', runTimestamp)));
     });
 };
