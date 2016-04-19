@@ -2,6 +2,7 @@
 
 var path = require('path');
 var config = require('../config');
+var map = require('./mapping');
 
 module.exports = function(task, type, runTimestamp) {
     var res = false;
@@ -10,11 +11,13 @@ module.exports = function(task, type, runTimestamp) {
     // check task in config
     if (task in config.tasks && type in config.tasks[task]) {
         // forming url array
-        url[url.length] = (type in config.root) ? config.root[type] : config.root.baseDir;
-        if (type === 'dist') url[url.length] = (runTimestamp) ? 'build_' + runTimestamp : 'build';
-        url[url.length] = config.tasks[task][type];
+        url.push((type in config.root) ? config.root[type] : config.root.baseDir);
+        if (type === 'dist') url.push((runTimestamp) ? 'build_' + runTimestamp : 'build');
+        url.push(config.tasks[task][type]);
 
         res = path.join.apply(null, url);
+
+        //if (type === 'dist') { map(res, task); }
     }
 
     return res;

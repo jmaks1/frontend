@@ -50,5 +50,6 @@
             "dist": "fonts",
             "watch": "fonts/**/*.*"
         }
-    }
+    },
+    "map": "./map.json"
 }
