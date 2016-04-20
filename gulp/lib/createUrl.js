@@ -16,8 +16,6 @@ module.exports = function(task, type, runTimestamp) {
         url.push(config.tasks[task][type]);
 
         res = path.join.apply(null, url);
-
-        //if (type === 'dist') { map(res, task); }
     }
 
     return res;

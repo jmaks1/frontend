@@ -6,6 +6,7 @@
 var gulp = require('gulp');
 var path = require('path');
 var taskUrl = require('../lib/createUrl');
+var mapping = require('../lib/mapping');
 var taskName = path.basename(__filename, '.js');
 
 var config = require('../config');
@@ -47,6 +48,19 @@ module.exports = function(runTimestamp) {
                 myConfig[i].output.publicPath = '\\' + taskUrl(taskName, 'dist') + '\\';
                 myConfig[i].devtool = "source-map";
             }
+
+
+            // todo: add language to map!
+            // write route map
+            for(var entry in config.tasks[taskName].entries) {
+                var history = [];
+
+                history.push(path.join(myConfig[i].context, config.tasks[taskName].entries[entry]));
+                history.push(path.join(myConfig[i].output.path, config.tasks[taskName].entries[entry]));
+
+                mapping.add(history);
+            }
+            mapping.write((runTimestamp) ? 'prod' : 'dev');
         }
 
         // run webpack
