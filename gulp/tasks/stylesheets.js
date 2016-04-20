@@ -17,22 +17,22 @@ var prefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
 var foreach = require('gulp-foreach');
 
-module.exports = function(runTimestamp) {
-    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
+module.exports = function(build) {
+    gulp.task(taskName + ((build)?':production':''), function () {
         return gulp.src(taskUrl(taskName, 'src'))
             .pipe(plumber())
-            .pipe(gulpif(!runTimestamp, sourcemaps.init()))
+            .pipe(gulpif(!build, sourcemaps.init()))
             .pipe(sass())
             .pipe(prefixer())
             .pipe(cssmin())
-            .pipe(gulpif(!runTimestamp, sourcemaps.write()))
+            .pipe(gulpif(!build, sourcemaps.write()))
             .pipe(plumber.stop())
-            .pipe(gulp.dest(taskUrl(taskName, 'dist', runTimestamp)))
+            .pipe(gulp.dest(taskUrl(taskName, 'dist', build)))
             .pipe(foreach(function(stream, file){
                 mapping.add(file.history);
                 return stream;
             })).on('end', function() {
-                mapping.write((runTimestamp) ? 'prod' : 'dev');
+                mapping.write((build) ? 'prod' : 'dev');
             });
     });
 };

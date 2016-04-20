@@ -10,8 +10,8 @@ var taskName = path.basename(__filename, '.js');
 
 var spritesmith = require('gulp.spritesmith');
 
-module.exports = function(runTimestamp) {
-    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
+module.exports = function(build) {
+    gulp.task(taskName + ((build)?':production':''), function () {
         var spriteData =
             gulp.src(taskUrl(taskName, 'src'))
                 .pipe(spritesmith({
@@ -27,6 +27,6 @@ module.exports = function(runTimestamp) {
                 }));
 
         spriteData.css.pipe(gulp.dest(taskUrl(taskName, 'core')));
-        spriteData.img.pipe(gulp.dest(taskUrl(taskName, 'dist', runTimestamp)));
+        spriteData.img.pipe(gulp.dest(taskUrl(taskName, 'dist', build)));
     });
 };

@@ -13,8 +13,8 @@ var plumber = require('gulp-plumber');
 var svgmin = require('gulp-svgmin');
 var svgSprite = require('gulp-svg-sprite');
 
-module.exports = function(runTimestamp) {
-    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
+module.exports = function(build) {
+    gulp.task(taskName + ((build)?':production':''), function () {
         return gulp.src(taskUrl(taskName, 'src'))
             .pipe(plumber())
             .pipe(svgmin())
@@ -28,7 +28,7 @@ module.exports = function(runTimestamp) {
                     "css": {
                         "dest": config.root.baseDir,
                         "layout": "diagonal",
-                        "sprite": taskUrl(taskName, 'dist', runTimestamp) + "/sprite-svg.svg",
+                        "sprite": taskUrl(taskName, 'dist', build) + "/sprite-svg.svg",
                         "bust": false,
                         "render": {
                             "scss": {

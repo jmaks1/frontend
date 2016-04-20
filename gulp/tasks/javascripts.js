@@ -14,8 +14,8 @@ var webpack = require("webpack");
 var webpackConfig = require("../../webpack.config");
 var gutil = require("gulp-util");
 
-module.exports = function(runTimestamp) {
-    gulp.task(taskName + ((runTimestamp)?':production':''), function (callback) {
+module.exports = function(build) {
+    gulp.task(taskName + ((build)?':production':''), function (callback) {
         var myConfig = [];
         // update basic webpack config
         for (var i = 0; i < webpackConfig.length; i++) {
@@ -23,9 +23,9 @@ module.exports = function(runTimestamp) {
             myConfig[i] = Object.create(webpackConfig[i]);
             myConfig[i].entry = config.tasks[taskName].entries;
 
-            if (runTimestamp) {
-                myConfig[i].output.path = taskUrl(taskName, 'dist', runTimestamp);
-                myConfig[i].output.publicPath = config.tasks[taskName].publicPath + 'build_' + runTimestamp + '/javascripts/';
+            if (build) {
+                myConfig[i].output.path = taskUrl(taskName, 'dist', build);
+                myConfig[i].output.publicPath = config.tasks[taskName].publicPath + 'build_' + build + '/javascripts/';
                 myConfig[i].plugins = myConfig[i].plugins.concat(
                     new webpack.DefinePlugin({
                         "process.env": {
@@ -60,7 +60,7 @@ module.exports = function(runTimestamp) {
 
                 history.push(path.join(myConfig[i].context, file));
 
-                if (runTimestamp) {
+                if (build) {
                     history.push(myConfig[i].output.publicPath + file);
                 } else {
                     history.push(path.join(myConfig[i].output.publicPath, file));
@@ -68,7 +68,7 @@ module.exports = function(runTimestamp) {
 
                 mapping.add(history, taskName);
             }
-            mapping.write((runTimestamp) ? 'prod' : 'dev');
+            mapping.write((build) ? 'prod' : 'dev');
         }
 
         // run webpack
@@ -76,7 +76,7 @@ module.exports = function(runTimestamp) {
             if (err) throw new gutil.PluginError("webpack", err);
             gutil.log("[webpack]", stats.toString({
                 colors: true,
-                children: (runTimestamp) ? false : true
+                children: (build) ? false : true
             }));
             callback();
         });

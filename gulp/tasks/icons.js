@@ -12,15 +12,15 @@ var plumber = require('gulp-plumber');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 
-module.exports = function(runTimestamp) {
-    gulp.task(taskName + ((runTimestamp)?':production':''), function () {
+module.exports = function(build) {
+    gulp.task(taskName + ((build)?':production':''), function () {
         return gulp.src(taskUrl(taskName, 'src'))
             .pipe(iconfont({
                 fontName: 'GloriaJeans',
                 formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
                 normalize: true,
                 fontHeight: 1001,
-                timestamp: runTimestamp || Math.round(Date.now() / 1000)
+                timestamp: build || Math.round(Date.now() / 1000)
             }))
             .on('glyphs', function (glyphs, options) {
                 gulp.src(taskUrl(taskName, 'template'))
@@ -38,6 +38,6 @@ module.exports = function(runTimestamp) {
                     }))
                     .pipe(gulp.dest(taskUrl(taskName, 'core')));
             })
-            .pipe(gulp.dest(taskUrl(taskName, 'dist', runTimestamp)));
+            .pipe(gulp.dest(taskUrl(taskName, 'dist', build)));
     });
 };
