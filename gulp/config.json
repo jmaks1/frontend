@@ -24,6 +24,11 @@
             "dist": "stylesheets",
             "watch": "stylesheets/**/*.*"
         },
+        "images": {
+            "src": "images/**/*.*",
+            "dist": "images",
+            "watch": "images/**/*.*"
+        },
         "icons": {
             "src": "font-svg/*.*",
             "dist": "fonts",
