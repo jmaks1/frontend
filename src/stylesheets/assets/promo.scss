@@ -1,0 +1,19 @@
+.gj-banner {
+  .gj-banner__item {
+    margin-top: 20px;
+    height: 490px;
+    background-color: #ccc;
+    &.gj-banner__item_size-1 {
+      height: 200px;
+    }
+    &.gj-banner__item_size-2 {
+      height: 270px;
+    }
+    &.gj-banner__item_size-3 {
+      height: 300px;
+    }
+    &.gj-banner__item_size-4 {
+      height: 390px;
+    }
+  }
+}

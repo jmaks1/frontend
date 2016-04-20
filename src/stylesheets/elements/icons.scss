@@ -12,6 +12,12 @@
   &.icon-f { @include spriteSvg(f_ico); }
   &.icon-insta { @include spriteSvg(insta_ico); }
   &.icon-vk { @include spriteSvg(vk_ico); }
+  &.icon-marker {
+    @include spriteSvg(map);
+    position: relative;
+    top: 5px;
+    margin-right: 3px;
+  }
   &.icon-graph-1,
   &.icon-graph-2,
   &.icon-graph-3 {
