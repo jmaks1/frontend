@@ -49,16 +49,24 @@ module.exports = function(runTimestamp) {
                 myConfig[i].devtool = "source-map";
             }
 
-
             // todo: add language to map!
             // write route map
             for(var entry in config.tasks[taskName].entries) {
                 var history = [];
 
-                history.push(path.join(myConfig[i].context, config.tasks[taskName].entries[entry]));
-                history.push(path.join(myConfig[i].output.path, config.tasks[taskName].entries[entry]));
 
-                mapping.add(history);
+
+                var file = myConfig[i].name + '.' + path.parse(config.tasks[taskName].entries[entry]).base;
+
+                history.push(path.join(myConfig[i].context, file));
+
+                if (runTimestamp) {
+                    history.push(myConfig[i].output.publicPath + file);
+                } else {
+                    history.push(path.join(myConfig[i].output.publicPath, file));
+                }
+
+                mapping.add(history, taskName);
             }
             mapping.write((runTimestamp) ? 'prod' : 'dev');
         }

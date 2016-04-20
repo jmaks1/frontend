@@ -12,10 +12,26 @@ module.exports = {
      * Add route to Map before write
      * @param history
      */
-    add: function(history) {
-        console.log(history);
-        var src = _.split(history[0], '\\');
-        var dist = _.split(history[history.length - 1], '\\');
+    add: function(history, task) {
+
+        var separator = [];
+
+        if (history[0].indexOf('\\') !== -1) {
+            separator[0] = '\\';
+        } else if (history[0].indexOf('/') !== -1) {
+            separator[0] = '/';
+        }
+
+        if (history[history.length - 1].indexOf('\\') !== -1) {
+            separator[1] = '\\';
+        } else if (history[history.length - 1].indexOf('/') !== -1) {
+            separator[1] = '/';
+        }
+
+
+
+        var src = _.split(history[0], separator[0]);
+        var dist = _.split(history[history.length - 1], separator[1]);
 
         src = _.dropWhile(src, function(o) { return !(o === 'src'); });
         src = _.drop(src);
@@ -24,7 +40,14 @@ module.exports = {
         dist = _.dropWhile(dist, function(o) { return !(o === 'public'); });
         dist = _.join(dist, '/');
 
-        map[src] = dist;
+
+        if (task && task in config.tasks && history[history.length - 1].indexOf(config.tasks[task].publicPath) !== -1) {
+            dist = history[history.length - 1];
+        }
+
+        if (src && dist) {
+            map[src] = dist;
+        }
     },
     /**
      * Clear mapping
@@ -43,7 +66,6 @@ module.exports = {
     write: function (env) {
         var url = path.join(__dirname, _.replace(config.mapping, '{env}', env));
 
-        console.log(map);
         fs.access(url, fs.F_OK, function(err) {
             if (!err) {
                 _.merge(map, JSON.parse(fs.readFileSync(url, 'utf8')));
