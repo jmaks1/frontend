@@ -25,7 +25,7 @@ task.icons();
 task.javascripts();
 task.stylesheets();
 task.clean(['javascripts']);
-task.watch(['javascripts', 'stylesheets', 'images']);
+task.watch(['javascripts', 'stylesheets', 'images', 'spritePng', 'spriteSvg']);
 
 /**
  * Init all production tasks
