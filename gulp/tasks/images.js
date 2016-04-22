@@ -17,7 +17,7 @@ module.exports = function (build) {
     gulp.task(taskName + ((build) ? ':production' : ''), function () {
         return gulp.src(taskUrl(taskName, 'src'))
             .pipe(plumber())
-            .pipe(imageResize({width: '100%'}))
+            //.pipe(imageResize({width: '100%'}))
             .pipe(imagemin({
                 progressive: true,
                 interlaced: true,
