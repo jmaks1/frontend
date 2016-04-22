@@ -1,6 +1,73 @@
 // include owl carousel
 @import "../../../bower_components/owl.carousel/src/scss/owl.carousel";
 
-.owl-nav {
+.owl-carousel {
+	.owl-stage-outer {
+		.owl-item {
+			-webkit-backface-visibility: visible;
+		}
+	}
+	.owl-nav {
 
+		.owl-prev {
+			@include center(left, 20px);
+			@include spriteHeight($s-arrow-white-right);
+			@include spriteWidth($s-arrow-white-right);
+		}
+		.owl-next {
+			@include center(right, 20px);
+			@include spriteHeight($s-arrow-white-left);
+			@include spriteWidth($s-arrow-white-left);
+		}
+
+		&.owl_white {
+			.owl-prev {
+				@include sprite($s-arrow-white-left);
+			}
+			.owl-next {
+				@include sprite($s-arrow-white-right);
+			}
+		}
+		&.owl_red {
+			.owl-prev {
+				@include sprite($s-arrow-red-left);
+			}
+			.owl-next {
+				@include sprite($s-arrow-red-right);
+			}
+		}
+	}
+	.owl-dots {
+		@include center(bottom, 20px);
+		text-align: center;
+		.owl-dot {
+			height: 10px;
+			width: 10px;
+			margin: 0 5px;
+			border: 3px solid transparent;
+			border-radius: 50%;
+			display: inline-block;
+			&.active {
+				background-color: transparent;
+			}
+			@include transition(all 0.2s ease);
+		}
+
+		&.owl_white {
+			.owl-dot {
+				border: 3px solid color(white);
+				&.active {
+					background-color: color(white);
+				}
+			}
+		}
+		&.owl_red {
+			.owl-dot {
+				border: 3px solid color(red);
+				&.active {
+					background-color: color(red);
+				}
+			}
+		}
+	}
 }

@@ -73,8 +73,13 @@
     &.item_carousel {
       .owl-carousel__slide {
         height: $size-5;
-        .item__image {
+        .owl-carousel__image {
           background-size: 100% 100%;
+        }
+        .owl-carousel__btn {
+          text-align: center;
+          @include center(bottom, 52px);
+
         }
       }
     }
@@ -98,4 +103,74 @@
       }
     }
   }
+}
+
+.gj-social {
+  font-family: font(museoSans);
+  padding-bottom: 40px;
+  border-bottom: 1px solid color(ghost);
+
+  h2 {
+    font-weight: 300;
+    font-size:24px;
+    margin: 40px 0 25px;
+    color: color(gray);
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.gj-advantages {
+  padding: 35px 0 40px;
+  font-family: font(ptSans);
+
+  .gj-advantages__icon {
+    display: block;
+    margin: auto;
+  }
+
+  h2 {
+    font-family: font(museoSans);
+    font-weight: 900;
+    font-size: 22px;
+    margin: 20px 0 15px;
+    color: color(gray);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .gj-advantages__title {
+    text-align: center;
+    color: #626262;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+
+  .gj-advantages__text {
+    color: #969696;
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+
+  .gj-advantages__small-arrow {
+    @include arrow(5px, 3px, #969696, bottom);
+    display: inline-block;
+    margin-left: 4px;
+    margin-bottom: 2px;
+  }
+
+  .gj-advantages__btn {
+    text-align: center;
+    .btn {
+      .ico_marker_white {
+        margin-bottom: -3px;
+        margin-right: 10px;
+      }
+    }
+  }
+
 }

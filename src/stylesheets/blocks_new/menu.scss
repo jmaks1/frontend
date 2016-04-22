@@ -3,11 +3,10 @@
 */
 
 .header__menu {
-  $indentItems: 20px;
+  $indentItems: 33px;
   $fontSize: 12px;
-  $menuHeight: height(menu);
+  $menuHeight: 400px;
 
-  margin-top: 18px;
   font-size: 0;
   white-space: nowrap;
   text-align: center;
@@ -24,15 +23,15 @@
         color: color(black);
         white-space: normal;
         font-size: $fontSize;
+        letter-spacing: 0.5px;
       }
       a {
+        text-decoration: none;
         &:focus {
           text-decoration: none;
         }
       }
-      b {
-        letter-spacing: 0.2px;
-      }
+
       &.active,
       &:hover {
         & > a {
@@ -160,7 +159,7 @@
 
       &:active,
       &:hover {
-        & > a {
+        & > a:not(.menu_simple_link) {
           position: relative;
           &:before {
             content: '';

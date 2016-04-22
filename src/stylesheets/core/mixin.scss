@@ -33,7 +33,6 @@ $xl-up: "#{$screen} and (min-width:#{lower-bound($xl-range)})";
 $xl-down: "#{$screen} and (max-width:#{upper-bound($xl-range)})";
 $xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#{upper-bound($xl-range)})";
 
-
 @mixin btn($height, $background: transparent, $color: #fff, $font-size: $baseFontSize) {
 	height: $height;
 	line-height: $height;
@@ -62,13 +61,31 @@ $xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#
 	}
 }
 
-@mixin center() {
+@mixin center($type: none, $indent: 0px) {
 	position: absolute;
 	margin: auto;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
+
+	@if $type == top {
+		bottom: auto;
+		top: $indent;
+	}
+	@if $type == right {
+		left: auto;
+		right: $indent;
+	}
+	@if $type == bottom {
+		top: auto;
+		bottom: $indent;
+	}
+	@if $type == left {
+		right: auto;
+		left: $indent;
+	}
+
 }
 
 @mixin muted($color: #000, $opacity: 0.5) {
@@ -84,35 +101,57 @@ $xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#
 	}
 }
 
+@mixin arrow($height, $width, $color, $type) {
+	display: block;
+	width: 0;
+	height: 0;
+	border: $height / 2 solid transparent;
+
+	@if $type == top {
+		border-top: 0;
+		border-bottom: $width solid $color;
+	}
+	@if $type == right {
+		border-right: 0;
+		border-left: $width solid $color;
+	}
+	@if $type == bottom {
+		border-bottom: 0;
+		border-top: $width solid $color;
+	}
+	@if $type == left {
+		border-left: 0;
+		border-right: $width solid $color;
+	}
+}
 
 /*
  * Png sprite
  */
 
 @mixin spriteWidth($sprite) {
-  width: nth($sprite, 5);
+	width: nth($sprite, 5);
 }
 
 @mixin spriteHeight($sprite) {
-  height: nth($sprite, 6);
+	height: nth($sprite, 6);
 }
 
 @mixin spritePosition($sprite) {
-  background-position: nth($sprite, 3) nth($sprite, 4);
+	background-position: nth($sprite, 3) nth($sprite, 4);
 }
 
 @mixin spriteImage($sprite) {
-  background-image: url("../images/" + nth($sprite, 9));
+	background-image: url("../images/" + nth($sprite, 9));
 }
 
 @mixin sprite($sprite) {
-  @include spriteImage($sprite);
-  @include spritePosition($sprite);
-  @include spriteWidth($sprite);
-  @include spriteHeight($sprite);
-  display: inline-block;
+	@include spriteImage($sprite);
+	@include spritePosition($sprite);
+	@include spriteWidth($sprite);
+	@include spriteHeight($sprite);
+	display: inline-block;
 }
-
 
 /*
  * Svg sprite

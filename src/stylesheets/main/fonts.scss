@@ -42,3 +42,15 @@
   url('../fonts/MuseoSansCyrl900.ttf') format('truetype'),
   url('../fonts/MuseoSansCyrl900.svg#MuseoSansCyrl900') format('svg');
 }
+
+@font-face {
+  font-family: 'PtSans';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/pts55f-webfont.eot');
+  src: url('../fonts/pts55f-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/pts55f-webfont.woff2') format('woff2'),
+  url('../fonts/pts55f-webfont.woff') format('woff'),
+  url('../fonts/pts55f-webfont.ttf') format('truetype'),
+  url('../fonts/pts55f-webfont.svg#pt_sansregular') format('svg');
+}

@@ -2,38 +2,79 @@
 * Icons
 */
 
-.icon {
+.icon_gj {
+	@include spriteSvg(logo);
+}
 
-  &.icon-gj { @include spriteSvg(logo); }
-  &.icon-gj-white { @include spriteSvg(gj); }
+.icon_adv_1 {
+	@include sprite($s-ico-adv-1);
+}
+.icon_adv_2 {
+	@include sprite($s-ico-adv-2);
+}
+.icon_adv_3 {
+	@include sprite($s-ico-adv-3);
+}
 
-  &.icon-bars {
-    $size: 20px;
-    width: $size;
-    height: $size / 10 * 3 + $size / 10 * 1.5 * 2;
-    display: inline-block;
-    position: relative;
-    .elem-1,
-    .elem-2,
-    .elem-3 {
-      display: block;
-      height: $size / 10;
-      width: $size;
-      margin-bottom: $size / 10 * 1.5;
-      background-color: color(white);
-    }
-    .elem-1 { @include transition(transform  0.5s ease); }
-    .elem-2 { @include transition(opacity 0.5s ease); }
-    .elem-3 { @include transition(transform  0.5s ease); margin-bottom: 0; }
-    &.active {
-      .elem-1,
-      .elem-2,
-      .elem-3 {
-        @include center;
-      }
-      .elem-1 { @include rotate(45deg); }
-      .elem-2 { @include opacity(0); }
-      .elem-3 { @include rotate(-45deg); }
-    }
-  }
+.icon_liked {
+	@include sprite($s-liked);
+}
+
+.icon_basket {
+	@include sprite($s-basket_white);
+}
+
+.icon_search {
+	@include sprite($s-search);
+}
+
+.ico_marker {
+	@include sprite($s-marker);
+}
+
+.ico_marker_white {
+	@include sprite($s-marker_white);
+}
+
+.icon_bars {
+	$size: 20px;
+	width: $size;
+	height: $size / 10 * 3 + $size / 10 * 1.5 * 2;
+	display: inline-block;
+	position: relative;
+	.elem-1,
+	.elem-2,
+	.elem-3 {
+		display: block;
+		height: $size / 10;
+		width: $size;
+		margin-bottom: $size / 10 * 1.5;
+		background-color: color(white);
+	}
+	.elem-1 {
+		@include transition(transform 0.5s ease);
+	}
+	.elem-2 {
+		@include transition(opacity 0.5s ease);
+	}
+	.elem-3 {
+		@include transition(transform 0.5s ease);
+		margin-bottom: 0;
+	}
+	&.active {
+		.elem-1,
+		.elem-2,
+		.elem-3 {
+			@include center();
+		}
+		.elem-1 {
+			@include rotate(45deg);
+		}
+		.elem-2 {
+			@include opacity(0);
+		}
+		.elem-3 {
+			@include rotate(-45deg);
+		}
+	}
 }

@@ -3,12 +3,15 @@ $fonts: (
     verdana: (Verdana, Geneva, sans-serif),
     centuryGothic: ('CenturyGothic', sans-serif),
     museoSans: ('MuseoSansCyr', sans-serif),
+    ptSans: ('PtSans', sans-serif),
 );
 
 $colors: (
     black: #000000,
     gray: #343438,
+    grayLight: #c8c2c2,
     ghost: #f2f2f2,
+    snow: #f6f6f6,
     red: #f15758,
     white: #ffffff
 );
@@ -36,8 +39,8 @@ $baseLineHeight: 20px !default;
 $xs-range: (0px, 479px);
 $sm-range: (480px, 767px);
 $md-range: (768px, 959px);
-$lg-range: (960px, 1279px);
-$xl-range: (1280px, 1439px);
+$lg-range: (960px, 1219px);
+$xl-range: (1220px, 1439px);
 $screen: "only screen";
 
 
@@ -56,7 +59,7 @@ $input-height-base: 30px;
 $screen-xs: 480px;
 $screen-sm: 768px;
 $screen-md: 960px;
-$screen-lg: 1280px;
+$screen-lg: 1220px;
 
 $container-tablet: $screen-sm - 40;
 $container-desktop: $screen-md - 40;

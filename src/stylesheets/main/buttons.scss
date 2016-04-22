@@ -4,6 +4,17 @@
 
 .btn {
 	@include btn($height: 45px);
+	&.btn_lg {
+		@include btn(
+			$height: 66px,
+			$font-size: 18px
+		);
+		font-family: font(museoSans);
+		font-weight: 300;
+		border-radius: 33px;
+		text-transform: uppercase;
+		padding: 0 37px;
+	}
 
 	&.btn_red {
 		background-color: color(red);
@@ -12,6 +23,16 @@
 		}
 		&:active {
 			background-color: color(red);
+		}
+	}
+	&.btn_white {
+		color: color(gray);
+		background-color: color(white);
+		&:hover {
+			background-color: darken(color(white), 5%);
+		}
+		&:active {
+			background-color: color(white);
 		}
 	}
 }
