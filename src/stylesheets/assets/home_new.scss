@@ -1,0 +1,101 @@
+.gj-banner {
+  .gj-banner__item {
+
+    $size-1: 200px;
+    $size-2: 270px;
+    $size-3: 300px;
+    $size-4: 390px;
+    $size-5: 490px;
+
+    $size-link: 45px;
+
+    height: $size-5;
+    font-family: font(museoSans);
+    position: relative;
+    margin-top: 20px;
+    background-color: #ccc;
+    overflow: hidden;
+
+    .item__image {
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      @include transition(transform, 0.5s, ease)
+    }
+
+    .item__title {
+      position: absolute;
+      bottom: $size-link;
+      left: 0;
+      right: 0;
+      color: color(white);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 30px;
+      text-transform: uppercase;
+      padding: 0 20px 12px;
+      &.title_gray {
+        color: #343438;
+      }
+    }
+
+    .item__link {
+      font-size: 16px;
+      height: $size-link;
+      line-height: $size-link;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      color: color(gray);
+      background-color: color(ghost);
+      padding-left: 20px;
+      text-decoration: none;
+      .btn {
+        float: right;
+        width: $size-link;
+        position: relative;
+        &:before {
+          content: "";
+          width: 0;
+          height: 0;
+          border: 4px solid transparent;
+          border-left: 5px solid color(white);
+          @include center();
+          left: 20px;
+          right: auto;
+        }
+      }
+    }
+
+    &.item_carousel {
+      .owl-carousel__slide {
+        height: $size-5;
+        .item__image {
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+    &.item_size-1 {
+      height: $size-1;
+    }
+    &.item_size-2 {
+      height: $size-2;
+    }
+    &.item_size-3 {
+      height: $size-3;
+    }
+    &.item_size-4 {
+      height: $size-4;
+    }
+
+    &:not(.item_carousel):hover {
+      .item__image {
+        @include scale(1.1);
+      }
+    }
+  }
+}

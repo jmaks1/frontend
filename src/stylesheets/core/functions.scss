@@ -74,23 +74,3 @@
   @warn "Unknown `#{$key}` in $z-layers.";
   @return null;
 }
-
-// height
-@function height($key) {
-  @if map-has-key($height, $key) {
-    @return map-get($height, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $height.";
-  @return null;
-}
-
-//width
-@function width($key) {
-  @if map-has-key($width, $key) {
-    @return map-get($width, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $width.";
-  @return null;
-}

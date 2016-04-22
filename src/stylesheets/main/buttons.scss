@@ -1,0 +1,17 @@
+/*
+* Buttons
+*/
+
+.btn {
+	@include btn($height: 45px);
+
+	&.btn_red {
+		background-color: color(red);
+		&:hover {
+			background-color: lighten(color(red), 5%);
+		}
+		&:active {
+			background-color: color(red);
+		}
+	}
+}

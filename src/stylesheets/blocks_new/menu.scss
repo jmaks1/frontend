@@ -1,0 +1,208 @@
+/*
+* Top-menu
+*/
+
+.header__menu {
+  $indentItems: 20px;
+  $fontSize: 12px;
+  $menuHeight: height(menu);
+
+  margin-top: 18px;
+  font-size: 0;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+  z-index: z(aboveSlider);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      a, b {
+        text-transform: uppercase;
+        color: color(black);
+        white-space: normal;
+        font-size: $fontSize;
+      }
+      a {
+        &:focus {
+          text-decoration: none;
+        }
+      }
+      b {
+        letter-spacing: 0.2px;
+      }
+      &.active,
+      &:hover {
+        & > a {
+          text-decoration: none;
+          color: color(red);
+        }
+      }
+    }
+  }
+
+  & > ul {
+    text-align: center;
+    display: inline-block;
+    & > li {
+      display: inline-block;
+      & > a {
+        font-weight: bold;
+        display: inline-block;
+        line-height: 60px;
+        padding: 0 $indentItems;
+      }
+      & > .menu-dropdown {
+        display: none;
+        padding: 0 0 20px;
+        text-align: left;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: $menuHeight;
+        overflow: hidden;
+        z-index: z(default);
+        border-top: 1px solid transparent;
+        & > ul {
+          padding: 20px 0 0;
+          float: left;
+          width: 25%;
+          & > li {
+            b, a {
+              display: block;
+              padding: 10px 20px;
+              line-height: 100%;
+            }
+            .menu-lvl2 {
+              overflow: hidden;
+              display: none;
+              position: absolute;
+              left: 25%;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              padding: 0 0 20px;
+              & > ul {
+                float: left;
+                width: 33.33%;
+                padding: 20px 0 0;
+                margin: 0;
+                list-style: none;
+              }
+            }
+            &.active,
+            &:hover {
+              .menu-lvl2 {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .border-left {
+          border-left: 1px solid color(red);
+        }
+        .menu-root {
+          & > li {
+            & > a {
+              font-weight: bold;
+              letter-spacing: 0.2px;
+            }
+          }
+          &.border-left {
+            & > li {
+              &.active,
+              &:hover {
+                & > a {
+                  position: relative;
+                  &:before {
+                    content: '';
+                    height: 1px;
+                    width: 10px;
+                    background-color: color(red);
+                    @include center;
+                    right: auto;
+
+                  }
+                  &:after {
+                    content: '';
+                    left: 0;
+                    right: 0;
+                    position: absolute;
+                    padding: 0;
+                    top: -10px;
+                    bottom: -10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.flip {
+          & > ul {
+            float: right;
+            & > li {
+              .menu-lvl2 {
+                right: 25%;
+                left: 0;
+                margin-right: -1px;
+                & > ul {
+                  float: right;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:active,
+      &:hover {
+        & > a {
+          position: relative;
+          &:before {
+            content: '';
+            height: 10px;
+            width: 1px;
+            background-color: color(red);
+            @include center;
+            top: auto;
+
+          }
+          &:after {
+            content: '';
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            padding: 0;
+            left: - $indentItems;
+            right: - $indentItems;
+          }
+        }
+        & > .menu-dropdown {
+          display: block;
+
+        }
+      }
+    }
+
+    .menu-bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: none;
+      height: $menuHeight;
+      border-top: 1px solid color(red);
+      background-color: color(white);
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    &:hover {
+      .menu-bg {
+        display: block;
+      }
+    }
+  }
+}

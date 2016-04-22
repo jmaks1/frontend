@@ -1,0 +1,34 @@
+/*
+* Colors
+*/
+
+.color_black {
+  color: color(black);
+  &:hover,
+  &:focus {
+    color: color(black);
+  }
+}
+
+.color_white {
+  color: color(white);
+  &:hover,
+  &:focus {
+    color: color(white);
+  }
+}
+
+.color_gray {
+  color: color(gray) !important;
+  &:hover,
+  &:focus {
+    color: color(gray) !important;
+  }
+}
+.color_red {
+  color: color(red);
+  &:hover,
+  &:focus {
+    color: color(red);
+  }
+}

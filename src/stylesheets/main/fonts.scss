@@ -17,3 +17,28 @@
   font-style: normal;
   font-weight: bold;
 }
+
+
+@font-face {
+  font-family: 'MuseoSansCyr';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../fonts/MuseoSansCyrl300.eot');
+  src: url('../fonts/MuseoSansCyrl300.eot') format('embedded-opentype'),
+  url('../fonts/MuseoSansCyrl300.woff2') format('woff2'),
+  url('../fonts/MuseoSansCyrl300.woff') format('woff'),
+  url('../fonts/MuseoSansCyrl300.ttf') format('truetype'),
+  url('../fonts/MuseoSansCyrl300.svg#MuseoSansCyrl300') format('svg');
+}
+
+@font-face {
+  font-family: 'MuseoSansCyr';
+  font-weight: 900;
+  font-style: normal;
+  src: url('../fonts/MuseoSansCyrl900.eot');
+  src: url('../fonts/MuseoSansCyrl900.eot') format('embedded-opentype'),
+  url('../fonts/MuseoSansCyrl900.woff2') format('woff2'),
+  url('../fonts/MuseoSansCyrl900.woff') format('woff'),
+  url('../fonts/MuseoSansCyrl900.ttf') format('truetype'),
+  url('../fonts/MuseoSansCyrl900.svg#MuseoSansCyrl900') format('svg');
+}
