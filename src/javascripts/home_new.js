@@ -7,12 +7,7 @@
 
 var main = require('./assets/main');
 var GJ = require('./assets/gj');
-var User = require('./assets/user');
 
-GJ.user = User;
-
-//import "jquery_lazyload";
-//import "owl.carousel";
 require('jquery_lazyload');
 require('owl.carousel');
 
@@ -37,16 +32,13 @@ $(function() {
 
     _slider.owlCarousel({
         items: 1,
-        merge: true,
         loop: true,
-        center: true,
         nav: true,
         navText: ["<span class='fa fa-2x fa-caret-left'></span>", "<span class='fa fa-2x fa-caret-right'></span>"],
-        autoHeight: true,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 2000,
         smartSpeed: 500
     });
 
@@ -60,6 +52,7 @@ $(function() {
     }
 
     // when sliding images
+    /*
     _slider.on('translated.owl.carousel', function(event) {
         var element   = event.target;
         var item      = event.item.index;
@@ -71,6 +64,7 @@ $(function() {
         if (imagePrev.length > 0) sliderLazy(imagePrev);
         if (imageNext.length > 0) sliderLazy(imageNext);
     });
+    */
 });
 
 module.exports = GJ;
